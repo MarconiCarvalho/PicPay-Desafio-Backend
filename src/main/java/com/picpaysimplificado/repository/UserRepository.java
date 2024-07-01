@@ -1,11 +1,11 @@
-package com.picpaysimplificado.domain.repository;
+package com.picpaysimplificado.repository;
 
-import com.picpaysimplificado.domain.User.User;
+import com.picpaysimplificado.domain.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.Optional;
 
 public interface UserRepository extends JpaRepository<User, Long> {
    Optional<User> findUserByDocument(String document);
-   Optional<User> findUserByID(Long id);
+   Optional<User> findUserById(Long id);
 }
