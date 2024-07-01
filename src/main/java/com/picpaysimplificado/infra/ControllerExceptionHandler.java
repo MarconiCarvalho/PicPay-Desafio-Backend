@@ -19,13 +19,13 @@ public class ControllerExceptionHandler {
     }
 
     @ExceptionHandler(DataIntegrityViolationException.class)
-    public ResponseEntity treat404(DataIntegrityViolationException exception){
-           return ResponseEntity.badRequest().build();
+    public ResponseEntity treat404(EntityNotFoundException exception){
+           return ResponseEntity.notFound().build();
 
     }
 
     @ExceptionHandler(Exception.class)
-    public ResponseEntity threatGeneralException(EntityNotFoundException exception){
+    public ResponseEntity threatGeneralException(Exception exception){
         ExceptionDTO exceptionDTO =  new ExceptionDTO(exception.getMessage(), "500");
         return ResponseEntity.internalServerError().body(exceptionDTO);
     }
